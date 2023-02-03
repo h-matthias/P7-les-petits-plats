@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="./css/style.css">
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			src="https://kit.fontawesome.com/11ccd4a24f.js"
+			crossorigin="anonymous"
+		></script>
+		<title>Les petis plats</title>
+	</head>
+	<body>
+	
+			<header class="header">
+				<img class="logo" src="./assets/logo/logo.svg" alt="Logo Les petit plats" />
+			</header>
+
+			<main>
+				<!-- search recipes -->
+				<section class="section-search">
+					<div class="search">
+						<input
+							class="input-search"
+							type="text"
+							placeholder="Rechercher une recette"
+						/>
+						<i class="fa-solid fa-magnifying-glass"></i>
+					</div>
+				</section>
+				<!-- TAG selected -->
+				<section class="section-tag-selected">
+					<ul class="list-tag">
+					</ul>
+				</section>
+				<!-- TAG search -->
+				<section class="section-search-tag">
+					<div class="ingredients-search dropdown is-hidden">
+						<div>
+							<!-- <label for="ingredients">Ingredients</label> -->
+							<input
+								type="text"
+								id="ingredients"
+								placeholder="Ingredients"
+							/>
+							<button class="dropdown-button">
+								<i class="fa-solid fa-chevron-down"></i>
+							</button>
+						</div>
+						<ul class="list-ingredients dropdown-content is-hidden">
+						</ul>
+					</div>
+					<div class="appareils-search dropdown is-hidden">
+						<div>
+							<!-- <label for="appareils">Appareils</label> -->
+							<input
+								type="text"
+								id="appareils"
+								placeholder="Appareils"
+							/>
+							<button class="dropdown-button">
+								<i class="fa-solid fa-chevron-down"></i>
+							</button>
+						</div>
+						<ul class="list-appareils dropdown-content is-hidden"></ul>
+					</div>
+					<div class="ustensils-search dropdown is-hidden">
+						<div>
+							<!-- <label for="ustensiles">Ustensiles</label> -->
+							<input
+								type="text"
+								id="ustensiles"
+								placeholder="Ustensiles"
+							/>
+							<button class="dropdown-button">
+								<i class="fa-solid fa-chevron-down"></i>
+							</button>
+						</div>
+						<ul class="list-ustensils dropdown-content is-hidden"></ul>
+					</div>
+				</section>
+				<!-- List recipes -->
+				<section class="section-list-recipes">
+					<ul class="list-recipes">
+					</ul>
+				</section>
+			</main>
+
+		<script src="./src/API/recipesFetch.js"></script>
+		<script src="./src/factories/recipeFactory.js"></script>
+		<script src="./src/display/displayRecipes.js"></script>
+		<script src="./src/function/dropdown.js"></script>
+		<script src="./src/function/listTagDropdown.js"></script>
+		<script src="./src/function/searchEngine.js"></script>
+		<script src="./index.js"></script>
+
+	</body>
+</html>
