@@ -54,6 +54,7 @@ const ingredientHasBeenSelected = (ingredient) => {
 	if (!ingredientsSelected.includes(ingredient)) {
 		ingredientsSelected.push(ingredient)
 		refreshRecipes()
+		inputIngredient.value = ''
 	}
 }
 const ingredientHasBeenRemoved = (ingredient) => {
@@ -67,6 +68,7 @@ const appliancesHasBeenSelected = (appliance) => {
 	if (!appliancesSelected.includes(appliance)) {
 		appliancesSelected.push(appliance)
 		refreshRecipes()
+		inputAppliance.value = ''
 	}
 }
 const appliancesHasBeenRemoved = (appliance) => {
@@ -78,6 +80,7 @@ const ustensilsHasBeenSelected = (ustensil) => {
 	if (!ustensilsSelected.includes(ustensil)) {
 		ustensilsSelected.push(ustensil)
 		refreshRecipes()
+		inputUstensil.value = ''
 	}
 }
 const ustensilsHasBeenRemoved = (ustensil) => {

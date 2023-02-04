@@ -191,6 +191,9 @@ main {
 	text-decoration: underline;
 	text-shadow: black 1px 1px 5px;
 }
+.dropdown-content p {
+	grid-area: 1/1/1/4;
+}
 
 .list-ingredients{
 	background: #3282f7;

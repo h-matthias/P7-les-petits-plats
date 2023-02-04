@@ -5,6 +5,10 @@ let appliancesSelected = []
 let ustensilsSelected = []
 let searchTerms = ''
 
+const inputIngredient = document.querySelector('#ingredients')
+const inputAppliance = document.querySelector('#appareils')
+const inputUstensil = document.querySelector('#ustensils')
+
 const search = searchEngine()
 
 const refreshRecipes = () => {
@@ -26,7 +30,7 @@ const refreshRecipes = () => {
 	)
 
 	displayRecipes(recipesMatchesSearchTerm)
-    refreshDomTag(ingredientsSelected, appliancesSelected, ustensilsSelected)
+	refreshDomTag(ingredientsSelected, appliancesSelected, ustensilsSelected)
 }
 
 async function init() {
@@ -39,10 +43,46 @@ async function init() {
 		searchTerms = e.target.value
 		if (searchTerms.length > START_SEARCH_UP_TWO_CHARACTERE) {
 			refreshRecipes()
-		}else{
-            searchTerms =''
-            refreshRecipes()
-        }
+		} else {
+			searchTerms = ''
+			refreshRecipes()
+		}
+	})
+
+	inputIngredient.addEventListener('input', (event) => {
+		const addTagDom = addItemTagDropdown()
+		const searchWord = new RegExp(event.target.value, 'i')
+		const ingredientSearch = Array.from(allIngredients).filter(
+			(ingredient) => {
+				return searchWord.test(ingredient)
+			}
+		)
+		displayTagInDropdown(ingredientSearch, 'ing')
+		addTagDom.ingredientTag()
+	})
+
+	inputAppliance.addEventListener('input', (event) => {
+		const addTagDom = addItemTagDropdown()
+
+		const searchWord = new RegExp(event.target.value, 'i')
+		const applianceSearch = Array.from(allAppliances).filter(
+			(appliance) => {
+				return searchWord.test(appliance)
+			}
+		)
+		displayTagInDropdown(applianceSearch, 'app')
+		addTagDom.applianceTag()
+	})
+
+	inputUstensil.addEventListener('input', (event) => {
+		const addTagDom = addItemTagDropdown()
+
+		const searchWord = new RegExp(event.target.value, 'i')
+		const ustensilSearch = Array.from(allUstensils).filter((ustensil) => {
+			return searchWord.test(ustensil)
+		})
+		displayTagInDropdown(ustensilSearch, 'ust')
+		addTagDom.ustensilTag()
 	})
 
 	refreshRecipes()
