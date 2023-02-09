@@ -1,16 +1,30 @@
 const searchEngine = () => {
 	const getRecipesMatchingSearchTerm = (recipes, searchTerms) => {
 		const searchWord = new RegExp(searchTerms, 'i')
-		return recipes.filter((recipe) => {
-			const name = recipe.name
-			const ingredients = recipe.ingredients.map((ing) => ing.ingredient)
-			const description = recipe.description
-			return (
-				searchWord.test(name) ||
-				searchWord.test(description) ||
-				ingredients.some((ingredient) => searchWord.test(ingredient))
-			)
-		})
+
+		const recipeSortByTerms = []
+		const lengthArray = recipes.length
+		if (!searchTerms) return recipes
+
+		for (let i = 0; i<lengthArray; i++) {
+			const name = recipes[i].name
+			const lengthIngredients = recipes[i].ingredients.length
+			const ingredients = recipes[i].ingredients
+			const description = recipes[i].description
+
+			const hasName= searchWord.test(name)
+			const hasDescription= searchWord.test(description)
+			let hasIngredient=false
+
+			for (let j = 0; j<lengthIngredients;j++){
+				if (searchWord.test(ingredients[j].ingredient)) {
+					hasIngredient = true
+				}
+			}
+			if (hasName|| hasIngredient || hasDescription) recipeSortByTerms.push(recipes[i])
+		}
+		return recipeSortByTerms
+
 	}
 
 	const getRecipesMatchingIngredients = (recipes, ingredientSelected) => {
