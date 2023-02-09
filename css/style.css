@@ -229,7 +229,12 @@ main {
 	transition: all .3s ease-in-out;
 	border: #ed6454;
 }
-.list-recipes .item:hover{
+.list-recipes .item a{
+	text-decoration: none;
+	color: inherit;
+}
+.list-recipes .item:hover,
+.list-recipes .item:focus{
 	border: #ed6454 1px solid;
 	transform: scale(1.05);
 }

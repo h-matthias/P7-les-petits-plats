@@ -57,7 +57,7 @@ const displayTagInDropdown = (tags, groupTag) => {
 				tagListIngredients.innerHTML += `<p>Aucun ingredient ne correspond à votre critére... Vous pouvez chercher "pomme", "poisson", etc.</p>`
 			}
 			tagSort.forEach((tag) => {
-				tagListIngredients.innerHTML += `<li class='ing'>${tag}</li>`
+				tagListIngredients.innerHTML += `<li tabindex=0 class='ing'>${tag}</li>`
 			})
 			break
 		case 'app':
@@ -66,7 +66,7 @@ const displayTagInDropdown = (tags, groupTag) => {
 				tagListAppliances.innerHTML += `<p>Aucun appareil ne correspond à votre critére... Vous pouvez chercher "blender", "mixer", etc.</p>`
 			}
 			tagSort.forEach((tag) => {
-				tagListAppliances.innerHTML += `<li class='app'>${tag}</li>`
+				tagListAppliances.innerHTML += `<li tabindex=0 class='app'>${tag}</li>`
 			})
 			break
 		case 'ust':
@@ -75,7 +75,7 @@ const displayTagInDropdown = (tags, groupTag) => {
 				tagListUstensils.innerHTML += `<p>Aucun ustensile ne correspond à votre critére... Vous pouvez chercher "saladier", "fouet", etc.</p>`
 			}
 			tagSort.forEach((tag) => {
-				tagListUstensils.innerHTML += `<li class='ust'>${tag}</li>`
+				tagListUstensils.innerHTML += `<li tabindex=0 class='ust'>${tag}</li>`
 			})
 			break
 

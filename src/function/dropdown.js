@@ -15,7 +15,6 @@ dropdowns.forEach((dropdown) => {
 		}
 	})
 	input.addEventListener('input', (e) => {
-		const origin = content
 		if (e.target.value.length > 0) {
 			content.classList.remove('is-hidden')
 			dropdown.classList.remove('is-hidden')
@@ -26,11 +25,22 @@ dropdowns.forEach((dropdown) => {
 			button.classList.remove('rotate')
 		}
 	})
+	input.addEventListener('focus', (e) => {
+		content.classList.remove('is-hidden')
+		dropdown.classList.remove('is-hidden')
+		button.classList.add('rotate')
+	})
+	input.addEventListener('focusout', (e) => {
+		content.classList.add('is-hidden')
+		dropdown.classList.add('is-hidden')
+		button.classList.remove('rotate')
+	})
 })
 
 const toggleContent = (element) => {
 	element.classList.toggle('is-hidden')
 	element.children[1].classList.toggle('is-hidden')
+
 }
 const toggleButton = (element) => {
 	element.classList.toggle('rotate')

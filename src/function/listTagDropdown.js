@@ -8,7 +8,13 @@ const addItemTagDropdown = () => {
 				ingredientHasBeenSelected(event.target.innerText)
 			})
 		})
-
+		tagListItemIngredients.forEach((itemIngredient) => {
+			itemIngredient.addEventListener('keypress', (event) => {
+				if (event.key === 'Enter') {
+					ingredientHasBeenSelected(event.target.innerText)
+				}
+			})
+		})
 	}
 	const applianceTag = () => {
 		const tagListItemAppliances =
@@ -18,6 +24,13 @@ const addItemTagDropdown = () => {
 				appliancesHasBeenSelected(event.target.innerText)
 			})
 		})
+		tagListItemAppliances.forEach((itemAppliances) => {
+			itemAppliances.addEventListener('kepress', (event) => {
+				if (event.key === 'Enter') {
+					appliancesHasBeenSelected(event.target.innerText)
+				}
+			})
+		})
 	}
 	const ustensilTag = () => {
 		const tagListItemUstensils =
@@ -25,6 +38,13 @@ const addItemTagDropdown = () => {
 		tagListItemUstensils.forEach((itemUstensils) => {
 			itemUstensils.addEventListener('click', (event) => {
 				ustensilsHasBeenSelected(event.target.innerText)
+			})
+		})
+		tagListItemUstensils.forEach((itemUstensils) => {
+			itemUstensils.addEventListener('keypress', (event) => {
+				if (event.key === 'Enter') {
+					ustensilsHasBeenSelected(event.target.innerText)
+				}
 			})
 		})
 	}
@@ -46,7 +66,7 @@ const writeTagDom = (item, typeItem, element) => {
 	element.innerHTML += `
 		<li class="item item-${typeItemRename} ">
 			<p>${item}</p>
-			<i data-item='${item}' data-type='${typeItem}' class="fa-solid fa-xmark remove-tag"></i>
+			<i tabindex=0 data-item='${item}' data-type='${typeItem}' class="fa-solid fa-xmark remove-tag"></i>
 		</li>`
 }
 
@@ -68,25 +88,49 @@ const refreshDomTag = (
 		writeTagDom(ustensil, 'ust', listTagSearchActiveDom)
 	)
 
-	 const ingredientsTagSelect = document.querySelectorAll('.item-ingredient .remove-tag')
-	 ingredientsTagSelect.forEach(ingredientTag => {
+	const ingredientsTagSelect = document.querySelectorAll(
+		'.item-ingredient .remove-tag'
+	)
+	ingredientsTagSelect.forEach((ingredientTag) => {
 		ingredientTag.addEventListener('click', () => {
 			ingredientHasBeenRemoved(ingredientTag.dataset.item)
-			
 		})
-	 })
-	 const appliancesTagSelect = document.querySelectorAll('.item-appareil .remove-tag')
-	 appliancesTagSelect.forEach(applianceTag => {
+	})
+	ingredientsTagSelect.forEach((ingredientTag) => {
+		ingredientTag.addEventListener('keypress', (event) => {
+			if (event.key === 'Enter') {
+				ingredientHasBeenRemoved(ingredientTag.dataset.item)
+			}
+		})
+	})
+	const appliancesTagSelect = document.querySelectorAll(
+		'.item-appareil .remove-tag'
+	)
+	appliancesTagSelect.forEach((applianceTag) => {
 		applianceTag.addEventListener('click', () => {
 			appliancesHasBeenRemoved(applianceTag.dataset.item)
-			
 		})
-	 })
-	 const ustensilsTagSelect = document.querySelectorAll('.item-ustensil .remove-tag')
-	 ustensilsTagSelect.forEach(ustensilTag => {
+	})
+	appliancesTagSelect.forEach((applianceTag) => {
+		applianceTag.addEventListener('keypress', (event) => {
+			if (event.key === 'Enter') {
+				appliancesHasBeenRemoved(applianceTag.dataset.item)
+			}
+		})
+	})
+	const ustensilsTagSelect = document.querySelectorAll(
+		'.item-ustensil .remove-tag'
+	)
+	ustensilsTagSelect.forEach((ustensilTag) => {
 		ustensilTag.addEventListener('click', () => {
 			ustensilsHasBeenRemoved(ustensilTag.dataset.item)
-			
 		})
-	 })
+	})
+	ustensilsTagSelect.forEach((ustensilTag) => {
+		ustensilTag.addEventListener('keypress', (event) => {
+			if (event.key === 'Enter') {
+				ustensilsHasBeenRemoved(ustensilTag.dataset.item)
+			}
+		})
+	})
 }

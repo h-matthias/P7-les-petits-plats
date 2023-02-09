@@ -14,6 +14,11 @@ function recipesFactory(recipe) {
 		//create element Dom
 		const cardDom = document.createElement('li')
 		cardDom.classList.add('item')
+		cardDom.setAttribute('tabindex', '0')
+
+		const link = document.createElement('a')
+		link.setAttribute('tabindex', '-1')
+		link.href = "#"
 
 		const imgRecipe = document.createElement('div')
 		imgRecipe.classList.add('img')
@@ -71,8 +76,10 @@ function recipesFactory(recipe) {
 		infoRecipe.appendChild(recipeIngredient)
 		infoRecipe.appendChild(descriptionRecipe)
 
-		cardDom.appendChild(imgRecipe)
-		cardDom.appendChild(infoRecipe)
+		link.appendChild(imgRecipe)
+		link.appendChild(infoRecipe)
+
+		cardDom.appendChild(link)
 
 		return cardDom
 	}
