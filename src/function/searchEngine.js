@@ -1,5 +1,6 @@
 const searchEngine = () => {
 	const getRecipesMatchingSearchTerm = (recipes, searchTerms) => {
+		if (!searchTerms) return recipes
 		const searchWord = new RegExp(searchTerms, 'i')
 		return recipes.filter((recipe) => {
 			const ingredients = recipe.ingredients.map((ing) => ing.ingredient)
