@@ -2,12 +2,10 @@ const searchEngine = () => {
 	const getRecipesMatchingSearchTerm = (recipes, searchTerms) => {
 		const searchWord = new RegExp(searchTerms, 'i')
 		return recipes.filter((recipe) => {
-			const name = recipe.name
 			const ingredients = recipe.ingredients.map((ing) => ing.ingredient)
-			const description = recipe.description
 			return (
-				searchWord.test(name) ||
-				searchWord.test(description) ||
+				searchWord.test(recipe.name) ||
+				searchWord.test(recipe.description) ||
 				ingredients.some((ingredient) => searchWord.test(ingredient))
 			)
 		})
